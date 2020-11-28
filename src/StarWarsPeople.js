@@ -1,5 +1,6 @@
 import React from 'react';
-import StarWarsCaracter from './StarwarsCharacter';
+import StarWarsCaracter from './StarWarsCharacter';
+import StarWarsHeader from './StarWarsHeader';
 
 export default class StarWarsPeople extends React.Component {
 
@@ -20,19 +21,10 @@ export default class StarWarsPeople extends React.Component {
     render(){
         return (<table>
             <head>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Altura</th>
-                    <th>Masa</th>
-                    <th>Color de cabello</th>
-                    <th>Color de piel</th>
-                    <th>Color de ojos</th>
-                    <th>Año de nacimiento</th>
-                    <th>Género</th>
-                </tr>
+            {this.state.data.map(character => <StarWarsCaracter character ={character} />)}
             </head>
             <tbody>
-                {this.state.data.map(character => <StarWarsCaracter character ={character} />)}
+            {this.state.data.map(character => <StarWarsCaracter character ={character} />)}
             </tbody>
         </table>);
     }
